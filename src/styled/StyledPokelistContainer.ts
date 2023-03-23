@@ -6,11 +6,13 @@ export const StyledPokelistContainer = styled.div`
   flex-wrap: wrap;
   gap: 20px;
 
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
 
   padding: 30px;
 
   border: solid 1.5px var(--grey4);
   border-radius: 10px;
+
+  overflow: auto;
 `

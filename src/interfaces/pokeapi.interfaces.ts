@@ -36,4 +36,5 @@ export interface ITypes {
 export interface IPokemonCardProps {
     id: number
     name: string
+    types: ITypesList
 }

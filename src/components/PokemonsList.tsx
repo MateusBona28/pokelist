@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { IButtonEventInterface } from "../interfaces/events.interfaces";
 import { IBasePokemonUrlInfo, IPokemon } from "../interfaces/pokeapi.interfaces";
 import { API, NOURLAPIREQUEST } from "../services/Api";
+import { StyledInterfaceContainer } from "../styled/StyledInterfaceContainer";
 import { StyledPokelistContainer } from "../styled/StyledPokelistContainer";
+import { pokemonLoopRequest } from "../utils/pokemonLoopRequest";
 import PokemonCard from "./PokemonCard";
 
 const PokemonsList = () => {
@@ -16,34 +19,51 @@ const PokemonsList = () => {
       setNextPage(res.data.next);
       setPreviousPage(res.data.previous);
 
-      const pagePokemonsArray: IPokemon[] = []
-
-      for (let i = 0; i < res.data.results.length; i++) {
-        const pokemon: IBasePokemonUrlInfo = res.data.results[i];
-
-        const response = await NOURLAPIREQUEST.get(pokemon.url)
-        pagePokemonsArray.push({
-          id: response.data.id,
-          name: response.data.name,
-          order: response.data.order,
-          abilities: response.data.abilities,
-          types: response.data.types,
-        })
-
-        if (i + 1 === res.data.results.length) {
-          setPokelist(pagePokemonsArray);
-        }
-      }
+      pokemonLoopRequest(res.data.results, setPokelist);
     })
     .catch((err) => {
       console.log(err);
     })
   }, []);
 
+  const handleChangePage = async (e: IButtonEventInterface) => {
+    if (e.title === "next") {
+      const response = await NOURLAPIREQUEST.get(nextPage);
+      setNextPage(response.data.next);
+      setPreviousPage(response.data.previous);
+      pokemonLoopRequest(response.data.results, setPokelist);
+    }
+    else {
+      const response = await NOURLAPIREQUEST.get(previousPage);
+      setNextPage(response.data.next);
+      setPreviousPage(response.data.previous);
+      pokemonLoopRequest(response.data.results, setPokelist);
+    }
+  }
+
   return(
-    <StyledPokelistContainer>
-      {pokelist?.map((pokemon) => <PokemonCard key={pokemon.id} id={pokemon.id} name={pokemon.name} />)}
-    </StyledPokelistContainer>
+    <StyledInterfaceContainer>
+      <div className="previousPageBtn" title="prev" 
+      onClick={(e) => {
+        handleChangePage(e.target)
+      }}
+       >previous</div>
+      <StyledPokelistContainer>
+        {pokelist?.map((pokemon) => {
+          return <PokemonCard 
+          key={pokemon.id} 
+          id={pokemon.id} 
+          name={pokemon.name} 
+          types={pokemon.types} 
+          />
+        })}
+      </StyledPokelistContainer>
+      <div className="nextPageBtn" title="next"
+      onClick={(e) => {
+        handleChangePage(e.target)
+      }}
+      >next</div>
+    </StyledInterfaceContainer>
   );
 }
 
