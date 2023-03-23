@@ -26,7 +26,14 @@ export const StyledPokemonDetailContainer = styled.div<IPokemonCardProps>`
     }
 
     .pokemonInfoSection {
-      padding: 10px !important;
+      padding: 15px !important;
+      h3 {
+        font-size: 18px;
+      }
+
+      span {
+        font-size: 16px;
+      }
     }
   }
 
