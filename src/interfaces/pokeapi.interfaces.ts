@@ -4,6 +4,17 @@ export interface IBasePokemonUrlInfo {
     url: string
 }
 
+export interface IPokemonListProps {
+    pokelist: IPokemon[]
+    setPokelist: Function
+    setNextPage: Function
+    setPreviousPage: Function
+    nextPage: string
+    previousPage: string
+    isLoading: boolean
+    setIsLoading: Function
+}
+
 export interface IPokemon {
     id: number
     name: string

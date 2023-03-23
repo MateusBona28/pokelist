@@ -16,13 +16,13 @@ const PokemonDetailModal = ({ primaryColor, secondaryColor, img, name, abilities
           <h3>Habilidades :</h3>
           <div className="pokemonInfoSection-abilities">
             {abilities?.map((ability, index) => {
-              return <span>{index + 1}  -  {ability.ability.name.split("-").join(" ")}</span>
+              return <span key={index}>{index + 1}  -  {ability.ability.name.split("-").join(" ")}</span>
             })}
           </div>
           <h3>Movimentos :</h3>
           <div className="pokemonInfoSection-abilities">
             {moves?.map((move, index) => {
-              return <span>{index + 1}  -  {move.move.name.split("-").join(" ")}</span>
+              return <span key={index}>{index + 1}  -  {move.move.name.split("-").join(" ")}</span>
             })}
           </div>
         </div>

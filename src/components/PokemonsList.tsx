@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { IButtonEventInterface } from "../interfaces/events.interfaces";
-import { IBasePokemonUrlInfo, IPokemon } from "../interfaces/pokeapi.interfaces";
+import { IPokemonListProps } from "../interfaces/pokeapi.interfaces";
 import { API, NOURLAPIREQUEST } from "../services/Api";
 import { StyledInterfaceContainer } from "../styled/StyledInterfaceContainer";
 import { StyledPokelistContainer } from "../styled/StyledPokelistContainer";
 import { pokemonLoopRequest } from "../utils/pokemonLoopRequest";
 import PokemonCard from "./PokemonCard";
 
-const PokemonsList = () => {
-
-  const [pokelist, setPokelist] = useState<IPokemon[]>([]);
-  const [nextPage, setNextPage] = useState("");
-  const [previousPage, setPreviousPage] = useState("");
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+const PokemonsList = ({ 
+  pokelist, 
+  setPokelist, 
+  setNextPage, 
+  setPreviousPage, 
+  nextPage, 
+  previousPage,
+  isLoading,
+  setIsLoading }: IPokemonListProps) => {
 
   useEffect(() => {
     API.get("/pokemon")
