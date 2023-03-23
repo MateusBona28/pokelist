@@ -6,7 +6,7 @@ export const StyledInterfaceContainer = styled.div`
   align-items: center;
   gap: 5px;
 
-  height: 80%;
+  height: 70%;
   width: 80%;
 
   .previousPageBtn {

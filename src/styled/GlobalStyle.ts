@@ -37,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
         border-radius: 20px;
     }
     ::-webkit-scrollbar {
-        width: 5px;
+        width: 8px;
         background: #F4F4F4;
         border-radius: 20px;
     }

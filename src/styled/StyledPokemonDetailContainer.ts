@@ -10,12 +10,25 @@ export const StyledPokemonDetailContainer = styled.div<IPokemonCardProps>`
   flex-direction: row;
   justify-content: space-between;
 
-  width: 700px;
-  height: 450px;
+  width: 60%;
+  height: 60%;
 
   border-radius: 10px;
 
   background-color: var(--white);
+
+  @media (max-width: 600px) {
+    width: 90%;
+
+    img {
+      height: 156px;
+      width: 156px;
+    }
+
+    .pokemonInfoSection {
+      padding: 10px !important;
+    }
+  }
 
   .pokemonImgSection {
     display: flex;
