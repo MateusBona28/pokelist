@@ -10,6 +10,17 @@ const StyledPageContainer = styled.main`
   width: 100vw;
   height: 100vh;
 
+  @media (max-width: 660px) {
+    h1 {
+      font-size: 22px;
+    }
+
+    .header-container {
+      flex-direction: column !important;
+      gap: 10px;
+    }
+  }
+
   .header-container {
     display: flex;
     flex-direction: row;
