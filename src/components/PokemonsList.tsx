@@ -51,11 +51,15 @@ const PokemonsList = ({
 
   return(
     <StyledInterfaceContainer>
+      {previousPage === null ? 
+      <div className="disabledBtn">{"<"}</div> 
+      :
       <div className="previousPageBtn" title="prev" 
       onClick={(e) => {
         handleChangePage(e.target)
       }}
        >{"<"}</div>
+      }
       <StyledPokelistContainer>
         {isLoading ? <p>Carregando...</p> 
         : 
@@ -71,11 +75,15 @@ const PokemonsList = ({
           />
         })}
       </StyledPokelistContainer>
+      {nextPage === null ?
+      <div className="disabledBtn">{">"}</div> 
+      :
       <div className="nextPageBtn" title="next"
       onClick={(e) => {
         handleChangePage(e.target)
       }}
       >{">"}</div>
+    }
     </StyledInterfaceContainer>
   );
 }
