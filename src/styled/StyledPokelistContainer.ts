@@ -14,7 +14,7 @@ export const StyledPokelistContainer = styled.div`
   padding: 30px;
 
   border: solid 1.5px var(--grey4);
-  border-radius: 10px;
+  border-radius: 4px;
 
   overflow: auto;
 `

@@ -7,15 +7,31 @@ export const StyledInterfaceContainer = styled.div`
   gap: 5px;
 
   height: 80%;
-  width: 90%;
+  width: 80%;
 
   .previousPageBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50px;
+
+    font-size: 20px;
+    
     :hover {
       cursor: pointer;
     }
   }
 
   .nextPageBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50px;
+
+    font-size: 20px;
+
     :hover {
       cursor: pointer;
     }

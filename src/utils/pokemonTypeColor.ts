@@ -6,6 +6,11 @@ export const pokemonTypeColor = async (types: ITypesList[], setPrimaryColor: Fun
         setSecondaryColor("--fireSecondaryColor");
     }
 
+    else if (types[0].type.name === "dragon") {
+        setPrimaryColor("--dragonPrimaryColor");
+        setSecondaryColor("--dragonSecondaryColor");
+    }
+
     else if(types[0].type.name === "grass" || types[0].type.name === "leaf" || types[0].type.name === "bug") {
         setPrimaryColor("--leafPrimaryColor");
         setSecondaryColor("--leafSecondaryColor");
@@ -26,9 +31,14 @@ export const pokemonTypeColor = async (types: ITypesList[], setPrimaryColor: Fun
         setSecondaryColor("--rockSecondaryColor");
     }
 
-    else if(types[0].type.name === "psychic" || types[0].type.name === "psychic") {
+    else if(types[0].type.name === "psychic" || types[0].type.name === "fairy") {
         setPrimaryColor("--psychicPrimaryColor");
         setSecondaryColor("--psychicSecondaryColor");
+    }
+    
+    else if(types[0].type.name === "poison") {
+        setPrimaryColor("--poisonPrimaryColor");
+        setSecondaryColor("--poisonSecondaryColor");
     }
 
     else {

@@ -14,6 +14,7 @@ export const pokemonLoopRequest = async (arr: IBasePokemonUrlInfo[], setPokelist
           order: response.data.order,
           abilities: response.data.abilities,
           types: response.data.types,
+          sprites: response.data.sprites,
         })
 
         if (i + 1 === arr.length) {

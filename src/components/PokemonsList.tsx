@@ -52,7 +52,7 @@ const PokemonsList = () => {
       onClick={(e) => {
         handleChangePage(e.target)
       }}
-       >previous</div>
+       >{"<"}</div>
       <StyledPokelistContainer>
         {isLoading ? <p>Carregando...</p> 
         : 
@@ -62,6 +62,7 @@ const PokemonsList = () => {
           id={pokemon.id} 
           name={pokemon.name} 
           types={pokemon.types}
+          sprites={pokemon.sprites}
           />
         })}
       </StyledPokelistContainer>
@@ -69,7 +70,7 @@ const PokemonsList = () => {
       onClick={(e) => {
         handleChangePage(e.target)
       }}
-      >next</div>
+      >{">"}</div>
     </StyledInterfaceContainer>
   );
 }

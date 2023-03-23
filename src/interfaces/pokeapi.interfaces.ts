@@ -10,6 +10,7 @@ export interface IPokemon {
     order: number
     abilities: IAbilitiesList[]
     types: ITypesList[]
+    sprites: IPokemonSpritesList
 }
 
 export interface IAbilitiesList {
@@ -37,4 +38,9 @@ export interface IPokemonCardProps {
     id: number
     name: string
     types: ITypesList[]
+    sprites: IPokemonSpritesList
+}
+
+export interface IPokemonSpritesList {
+    front_default: string
 }
