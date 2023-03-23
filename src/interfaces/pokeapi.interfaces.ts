@@ -8,8 +8,8 @@ export interface IPokemon {
     id: number
     name: string
     order: number
-    abilities: IAbilitiesList
-    types: ITypesList
+    abilities: IAbilitiesList[]
+    types: ITypesList[]
 }
 
 export interface IAbilitiesList {
@@ -36,5 +36,5 @@ export interface ITypes {
 export interface IPokemonCardProps {
     id: number
     name: string
-    types: ITypesList
+    types: ITypesList[]
 }

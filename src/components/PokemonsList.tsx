@@ -12,6 +12,7 @@ const PokemonsList = () => {
   const [pokelist, setPokelist] = useState<IPokemon[]>([]);
   const [nextPage, setNextPage] = useState("");
   const [previousPage, setPreviousPage] = useState("");
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     API.get("/pokemon")
@@ -19,7 +20,8 @@ const PokemonsList = () => {
       setNextPage(res.data.next);
       setPreviousPage(res.data.previous);
 
-      pokemonLoopRequest(res.data.results, setPokelist);
+      await pokemonLoopRequest(res.data.results, setPokelist);
+      setIsLoading(false)
     })
     .catch((err) => {
       console.log(err);
@@ -27,17 +29,20 @@ const PokemonsList = () => {
   }, []);
 
   const handleChangePage = async (e: IButtonEventInterface) => {
+    setIsLoading(true)
     if (e.title === "next") {
       const response = await NOURLAPIREQUEST.get(nextPage);
       setNextPage(response.data.next);
       setPreviousPage(response.data.previous);
-      pokemonLoopRequest(response.data.results, setPokelist);
+      await pokemonLoopRequest(response.data.results, setPokelist);
+      setIsLoading(false)
     }
     else {
       const response = await NOURLAPIREQUEST.get(previousPage);
       setNextPage(response.data.next);
       setPreviousPage(response.data.previous);
       pokemonLoopRequest(response.data.results, setPokelist);
+      setIsLoading(false)
     }
   }
 
@@ -49,12 +54,14 @@ const PokemonsList = () => {
       }}
        >previous</div>
       <StyledPokelistContainer>
-        {pokelist?.map((pokemon) => {
+        {isLoading ? <p>Carregando...</p> 
+        : 
+        pokelist?.map((pokemon) => {
           return <PokemonCard 
           key={pokemon.id} 
           id={pokemon.id} 
           name={pokemon.name} 
-          types={pokemon.types} 
+          types={pokemon.types}
           />
         })}
       </StyledPokelistContainer>
