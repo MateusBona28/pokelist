@@ -11,6 +11,14 @@ export interface IPokemon {
     abilities: IAbilitiesList[]
     types: ITypesList[]
     sprites: IPokemonSpritesList
+    moves: IMoves[]
+}
+
+export interface IMoves {
+    move: {
+        name: string
+        url: string
+    }
 }
 
 export interface IAbilitiesList {
@@ -39,8 +47,19 @@ export interface IPokemonCardProps {
     name: string
     types: ITypesList[]
     sprites: IPokemonSpritesList
+    abilities: IAbilitiesList[]
+    moves: IMoves[]
 }
 
 export interface IPokemonSpritesList {
     front_default: string
+}
+
+export interface IPokemonDetailModalInfo {
+    primaryColor: string
+    secondaryColor: string
+    img: string
+    name: string
+    abilities: IAbilitiesList[]
+    moves: IMoves[]
 }
