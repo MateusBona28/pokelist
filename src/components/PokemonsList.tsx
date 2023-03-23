@@ -63,6 +63,8 @@ const PokemonsList = () => {
           name={pokemon.name} 
           types={pokemon.types}
           sprites={pokemon.sprites}
+          abilities={pokemon.abilities}
+          moves={pokemon.moves}
           />
         })}
       </StyledPokelistContainer>
