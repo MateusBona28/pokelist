@@ -7,7 +7,7 @@ export const StyledInterfaceContainer = styled.div`
   gap: 5px;
 
   height: 80%;
-  width: 80%;
+  width: 90%;
 
   .previousPageBtn {
     :hover {
